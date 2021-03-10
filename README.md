@@ -31,7 +31,7 @@
 - has_many :likes
 - has_many :comments
 - has_many :idea_tags
-- has_many :tags, through: idea_tags
+- has_many :tags, through: :idea_tags
 
 
 ## comments テーブル
@@ -40,7 +40,7 @@
 | --------- | --------- | ------------------------------ |
 | user      | reference | null: false, foreign_key: true |
 | idea      | reference | null: false, foreign_key: true |
-| text      | string    | null: false                    |
+| text      | text      | null: false                    |
 
 ### Association
 

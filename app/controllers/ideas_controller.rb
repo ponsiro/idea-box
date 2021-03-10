@@ -17,6 +17,8 @@ before_action :authenticate_user!, only: [:create]
 
   def show
     @idea = Idea.find(params[:id])
+    @comment = Comment.new
+    @comments = @idea.comments.includes(:user).order(created_at: :desc)
   end
 
   def destroy
