@@ -1,7 +1,22 @@
 <h1>Top page</h1>
 <% if user_signed_in?%>
   <%= link_to "ログアウト", destroy_user_session_path, method: "DELETE" %>
+  <%= link_to "新規投稿", new_idea_path %>
+  
 <% else %>
   <%= link_to "新規登録", new_user_registration_path %>
   <%= link_to "ログイン", new_user_session_path %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= form_with(model: @idea, local: true) do |form| %>
+    <%# <%= form.text_field :image, placeholder: "Image Url" %> 
+    <%= form.text_area :content, placeholder: "content", rows: "1" %>
+    <%= form.submit "投稿する" %>
+  <% end %>
+<% end %>
+
+<% @ideas.each do |idea| %>
+    <p><%= link_to idea.content, idea_path(idea.id) %></p>
+    <p><%= idea.created_at %></p>
 <% end %>
