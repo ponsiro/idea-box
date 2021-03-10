@@ -1,4 +1,7 @@
 <h2>idea詳細画面</h2>
 <%= @idea.content %>
 
-<%= link_to '削除', idea_path(@idea.id), method: 'delete' %>
+<% if current_user.id == @idea.user_id %>
+  <%= link_to '削除', idea_path(@idea.id), method: 'delete' %>
+  <%= link_to '編集', edit_idea_path %>
+<% end %>

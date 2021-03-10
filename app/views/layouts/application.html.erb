@@ -10,6 +10,16 @@
   </head>
 
   <body>
+  <header>
+  <%= link_to 'ideaBox', root_path %>
+  <% if user_signed_in?%>
+  <%= link_to "ログアウト", destroy_user_session_path, method: "DELETE" %>
+  
+<% else %>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <%= link_to "ログイン", new_user_session_path %>
+<% end %>
+  </header>
     <%= yield %>
   </body>
 </html>

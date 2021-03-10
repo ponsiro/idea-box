@@ -1,14 +1,8 @@
-<h1>Top page</h1>
-
+<h2>投稿編集ページ</h2>
 <% if user_signed_in? %>
   <%= form_with(model: @idea, local: true) do |form| %>
     <%# <%= form.text_field :image, placeholder: "Image Url" %> 
     <%= form.text_area :content, placeholder: "content", rows: "1" %>
-    <%= form.submit "投稿する" %>
+    <%= form.submit "編集する" %>
   <% end %>
-<% end %>
-
-<% @ideas.each do |idea| %>
-    <p><%= link_to idea.content, idea_path(idea.id) %></p>
-    <p><%= idea.created_at %></p>
 <% end %>

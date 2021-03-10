@@ -25,6 +25,19 @@ before_action :authenticate_user!, only: [:create]
     redirect_to root_path
   end
 
+  def edit
+    @idea = Idea.find(params[:id])
+  end
+
+  def update
+    @idea = Idea.find(params[:id])
+    if @idea.update(idea_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
   def idea_params
     params.require(:idea).permit(:content).merge(user_id: current_user.id)
