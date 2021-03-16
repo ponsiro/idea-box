@@ -16,10 +16,10 @@
   <div class="container index">
   <p class="section-title">Contents<p>
     <% if user_signed_in? %>
-      <%= form_with(model: @idea, local: true) do |form| %>
+      <%= form_with(model: @idea, local: true, class:"idea-form") do |form| %>
         <%# <%= form.text_field :image, placeholder: "Image Url" %> 
-        <%= form.text_area :content, placeholder: "アイディアはここに", rows: "1"%>
-        <%= form.submit "投稿する" %>
+        <%= form.text_field :content, placeholder: "アイディアはここに", class:"content-form"%>
+        <%= form.submit "投稿する", class:"content-btn"%>
       <% end %>
     <% end %>
 
@@ -28,14 +28,13 @@
       <div class="idea-index">
         <p class="idea name"><%= idea.user.nickname %></p>
         <p class="idea content"><%= link_to idea.content, idea_path(idea.id) %></p>
-        <p class="idea created_at"><%= l idea.created_at %></p>
-            <% if user_signed_in? %>
-            <tr id=”idea_<%= idea.id %>”>
-              <%= render partial: "likes/like", locals: {idea: idea}%>
-            </tr>
-            <% end %>
+        <p class="idea created_at"><%= l idea.created_at, format: :short %></p>
+          <% if user_signed_in? %>
+          <tr id=”idea_<%= idea.id %>”>
+            <%= render partial: "likes/like", locals: {idea: idea}%>
+          </tr>
+          <% end %>
       </div>
-    
     <% end %>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<div class="content">
+  <div class="user-page">
+    <h1 class="user-show-name"><%= @user.nickname %></h1>
+    <%# <%= link_to "編集", %> 
+    <div class="user-contents">
+      <% @ideas.each do |idea|%>
+        <%= l idea.created_at, format: :short %>
+        <p><%=idea.content%></p>
+      <% end %>  
+    </div>
+  </div>
+</div>

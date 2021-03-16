@@ -2,9 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.like-link {
-  text-decoration: none;
-}
+
 
 .like-link:hover {
   background-color: #fff!important;
@@ -18,4 +16,8 @@
 .like-btn-unlike {
   font-size: 15px;
   color: #e54747;
+}
+
+.fa {
+  margin-left: 285px;
 }

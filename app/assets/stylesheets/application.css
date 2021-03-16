@@ -16,6 +16,7 @@
 
  * {
   box-sizing: border-box;
+  text-decoration: none;
 }
 body {
   font-family: Hiragino_Sans_CNS;
@@ -78,17 +79,14 @@ header {
 
 .section-title {
   text-align: center;
-  margin: 50px 0;
+  margin: 30px 0;
   padding: 50px 0;
   border-bottom: 1px solid lightblue;
   font-size: 50px;
   font-weight: 100;
 }
 
-.idea-index {
-  border: 1px solid lightblue;
-  margin-bottom: 15px;
-}
+
 
 .idea {
   text-align: center;

@@ -1,3 +1,55 @@
-// Place all the styles related to the ideas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.idea-show {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.idea-nickname {
+  font-size: 30px;
+  margin: 0 30px 50px 0;
+  text-align: center;
+}
+
+.idea-content {
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.comment-form {
+  position: absolute;
+  bottom: 0ox;
+  right: 0px;
+}
+
+.idea-form {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+}
+
+.content-form {
+  background-color: rgb(240, 249, 252);
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  width: 300px;
+  padding-left: 12px;
+  height: 50px;
+}
+
+.content-btn {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+  background-color: rgb(31, 184, 235);
+  color: white;
+  padding: 0 10px;
+}
+
+.idea-index {
+  margin: 0 auto;
+  border: 1px solid lightblue;
+  margin-bottom: 15px;
+  width: 600px;
+}
