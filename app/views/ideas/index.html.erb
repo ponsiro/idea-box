@@ -26,7 +26,7 @@
     <% @ideas.each do |idea| %>
     <div class="image-contents">
       <div class="idea-index">
-        <p class="idea name"><%= idea.user.first_name %></p>
+        <p class="idea name"><%= idea.user.nickname %></p>
         <p class="idea content"><%= link_to idea.content, idea_path(idea.id) %></p>
         <p class="idea created_at"><%= l idea.created_at %></p>
             <% if user_signed_in? %>
