@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-before_action :authenticate_user!, only: [:create]
+before_action :authenticate_user!, only: [:create, :destroy, :edit, :update]
 
   def index
     @ideas = Idea.all.order(created_at: "desc")
@@ -11,7 +11,7 @@ before_action :authenticate_user!, only: [:create]
     if @idea.save
       redirect_to root_path
     else
-      render :new
+      render :index
     end
   end
 
