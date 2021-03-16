@@ -13,3 +13,101 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+  box-sizing: border-box;
+}
+body {
+  font-family: Hiragino_Sans_CNS;
+}
+
+header {
+  width: 100vw;
+  height: 60px;
+  background-color: #536B86;
+  border-bottom: 1px solid orange;
+  position: fixed;
+  top: 0;
+}
+
+.top-wrapper {
+  background-image: url("https://cdn.pixabay.com/photo/2016/02/19/10/55/light-bulb-1209491_1280.jpg");
+  height: 100vh;
+  background-size: cover;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1250px;
+}
+
+.top-message {
+  padding-top: 250px;
+}
+
+.title-message {
+  color: white;
+  font-size: 80px;
+}
+
+.logo-img {
+  height: 60px;
+  width: 150px;
+  border-radius: 8px;
+}
+
+.header-contents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  color: white;
+  margin-right: 60px;
+  line-height: 60px;
+  text-decoration: none;
+}
+
+.index-wrapper {
+  background-color: white;
+}
+
+.index {
+  background-color:rgb(255, 255, 255);
+}
+
+.section-title {
+  text-align: center;
+  margin: 50px 0;
+  padding: 50px 0;
+  border-bottom: 1px solid lightblue;
+  font-size: 50px;
+  font-weight: 100;
+}
+
+.idea-index {
+  border: 1px solid lightblue;
+  margin-bottom: 15px;
+}
+
+.idea {
+  text-align: center;
+}
+
+.sinki-title {
+  text-align: center;
+  margin: 50px 0;
+  padding: 50px 0 50px 0;
+  border: 1px solid lightblue;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.field {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.actions {
+  text-align: center;
+}

@@ -1,20 +1,23 @@
-<h2>idea詳細画面</h2>
-<%= @idea.content %>
+<h2 class="sinki-title">詳細画面</h2>
+ <div class="content">
+  <%= @idea.content %>
 
-<% if user_signed_in? && current_user.id == @idea.user_id %>
-  <%= link_to '削除', idea_path(@idea.id), method: 'delete' %>
-  <%= link_to '編集', edit_idea_path %>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= form_with(model: [@idea, @comment], local: true) do |form| %>
-    <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-    <%= form.submit "SEND" %>
+  <% if user_signed_in? && current_user.id == @idea.user_id %>
+    <%= link_to '削除', idea_path(@idea.id), method: 'delete' %>
+    <%= link_to '編集', edit_idea_path %>
   <% end %>
-<% else %>
-  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-<% end %>
 
-<% @comments.each do |comment| %>
-  <p><%= comment.text %></p>
-<% end %>
+  <% if user_signed_in? && @idea.user_id != current_user.id %>
+    <%= form_with(model: [@idea, @comment], local: true) do |form| %>
+      <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+      <%= form.submit "送信" %>
+    <% end %>
+  <% else %>
+    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+  <% end %>
+
+  <% @comments.each do |comment| %>
+    <p><%= comment.text %></p>
+  <% end %>
+ </div>
+  

@@ -4,22 +4,30 @@
     <title>IdeaBox</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
-  <header>
-  <%= link_to 'ideaBox', root_path %>
-  <% if user_signed_in?%>
-  <%= link_to "ログアウト", destroy_user_session_path, method: "DELETE" %>
-  
-<% else %>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <%= link_to "ログイン", new_user_session_path %>
-<% end %>
-  </header>
+    <header>
+    <div class="header-contents">
+      <div class="header-logo">
+        <%= link_to image_tag("logo_twe.png", class:"logo-img"), root_path %>
+      </div>
+      <div class="header-right">
+        <% if user_signed_in?%>
+          <%= link_to "ログアウト", destroy_user_session_path, method: "DELETE", class:"btn log-out"%>
+        <% else %>
+          <%= link_to "新規登録", new_user_registration_path, class:"btn sign-up" %>
+          <%= link_to "ログイン", new_user_session_path, class:"btn log-in" %>
+        <% end %>
+      </div>
+    </div>
+    </header>
     <%= yield %>
+    <footer>
+    </footer>
   </body>
 </html>

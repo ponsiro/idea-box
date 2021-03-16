@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :ideas
   has_many :comments
   has_many :likes
+
+  def liked_by?(idea_id)
+    likes.where(idea_id: idea_id).exists?
+  end
 end

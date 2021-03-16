@@ -1,14 +1,43 @@
-<h1>Top page</h1>
-
-<% if user_signed_in? %>
-  <%= form_with(model: @idea, local: true) do |form| %>
-    <%# <%= form.text_field :image, placeholder: "Image Url" %> 
-    <%= form.text_area :content, placeholder: "content", rows: "1" %>
-    <%= form.submit "投稿する" %>
-  <% end %>
+<% unless user_signed_in? %>
+  <div class="top-wrapper">
+    <div class="container">
+      <div class="top-message">
+        <p class="title-message">あなたの欲しいを</p>
+        <p class="title-message">創造しよう</p>
+      </div>
+    </div>
+  </div>
 <% end %>
+<div class="about-wrapper">
+  <div class="container">
+  </div>
+</div>
+<div class="index-wrapper">
+  <div class="container index">
+  <p class="section-title">Contents<p>
+    <% if user_signed_in? %>
+      <%= form_with(model: @idea, local: true) do |form| %>
+        <%# <%= form.text_field :image, placeholder: "Image Url" %> 
+        <%= form.text_area :content, placeholder: "アイディアはここに", rows: "1"%>
+        <%= form.submit "投稿する" %>
+      <% end %>
+    <% end %>
 
-<% @ideas.each do |idea| %>
-    <p><%= link_to idea.content, idea_path(idea.id) %></p>
-    <p><%= idea.created_at %></p>
-<% end %>
+    <% @ideas.each do |idea| %>
+    <div class="image-contents">
+      <div class="idea-index">
+        <p class="idea name"><%= idea.user.first_name %></p>
+        <p class="idea content"><%= link_to idea.content, idea_path(idea.id) %></p>
+        <p class="idea created_at"><%= l idea.created_at %></p>
+            <% if user_signed_in? %>
+            <tr id=”idea_<%= idea.id %>”>
+              <%= render partial: "likes/like", locals: {idea: idea}%>
+            </tr>
+            <% end %>
+      </div>
+    
+    <% end %>
+  </div>
+</div>
+
+
