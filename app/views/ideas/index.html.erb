@@ -29,8 +29,13 @@
         <p class="idea name"><%= idea.user.first_name %></p>
         <p class="idea content"><%= link_to idea.content, idea_path(idea.id) %></p>
         <p class="idea created_at"><%= l idea.created_at %></p>
+            <% if user_signed_in? %>
+            <tr id=”idea_<%= idea.id %>”>
+              <%= render partial: "likes/like", locals: {idea: idea}%>
+            </tr>
+            <% end %>
       </div>
-    </div>
+    
     <% end %>
   </div>
 </div>

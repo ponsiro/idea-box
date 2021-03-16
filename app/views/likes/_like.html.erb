@@ -1,0 +1,13 @@
+
+    <% if current_user.liked_by?(idea.id) %>
+      <td><%= link_to destroy_like_path(idea), class: "like-link", method: :DELETE do%></td>
+      <i class="fa fa-heart like-btn-unlike"></i> <%= idea.likes.count %>
+      <i class="fa fa-thumbs-up o-btn"></i> 
+      <% end%>
+    <% else %>
+      <td><%= link_to create_like_path(idea), class: "like-link", method: :POST do%></td>
+      <i class="fa fa-heart like-btn "></i> </span><%= idea.likes.count %>
+      <% end %>
+    <% end %>
+ 
+
