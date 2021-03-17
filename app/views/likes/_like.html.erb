@@ -1,5 +1,5 @@
-
-    <% if current_user.liked_by?(idea.id) %>
+  <div class="check-like">
+    <% if user_signed_in? && current_user.liked_by?(idea.id) %>
       <td><%= link_to destroy_like_path(idea), class: "like-link", method: :DELETE do%></td>
       <i class="fa fa-heart like-btn-unlike"></i> <%= idea.likes.count %>
       <% end%>
@@ -8,5 +8,6 @@
       <i class="fa fa-heart like-btn "></i> </span><%= idea.likes.count %>
       <% end %>
     <% end %>
+  </div>
  
 

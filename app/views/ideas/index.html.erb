@@ -13,30 +13,34 @@
   </div>
 </div>
 <div class="index-wrapper">
-  <div class="container index">
+  <div class="container">
   <p class="section-title">Contents<p>
-    <% if user_signed_in? %>
-      <%= form_with(model: @idea, local: true, class:"idea-form") do |form| %>
-        <%# <%= form.text_field :image, placeholder: "Image Url" %> 
-        <%= form.text_field :content, placeholder: "アイディアはここに", class:"content-form"%>
-        <%= form.submit "投稿する", class:"content-btn"%>
-      <% end %>
-    <% end %>
-
     <% @ideas.each do |idea| %>
-    <div class="image-contents">
-      <div class="idea-index">
-        <p class="idea name"><%= idea.user.nickname %></p>
-        <p class="idea content"><%= link_to idea.content, idea_path(idea.id) %></p>
-        <p class="idea created_at"><%= l idea.created_at, format: :short %></p>
-          <% if user_signed_in? %>
-          <tr id=”idea_<%= idea.id %>”>
+      <div class="idea-contents">
+        <div class="idea-index">
+          <div class="content-left">
+            <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="image">
+            <tr id=”idea_<%= idea.id %>”>
             <%= render partial: "likes/like", locals: {idea: idea}%>
-          </tr>
-          <% end %>
+            </tr>
+          </div>
+          <div class="content-right">
+            <ul>
+              <li class="idea name"><%= link_to idea.user.nickname, user_path(idea.user_id), class: "nickname" %></li>
+              <li class="idea created_at"><%= l idea.created_at, format: :short %></li>
+            </ul>
+            <p class="idea content"><%= link_to idea.content, idea_path(idea.id), class: "con" %></p>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
+
+    <% if user_signed_in? %>
+      <%= form_with(model: @idea, local: true, class:"idea-form") do |form| %>
+        <%# <%= form.text_field :image, placeholder: "Image Url" %> 
+        <%= form.text_area :content, placeholder: "アイディアはここに", class:"content-form"%>
+        <%= form.submit "投稿する", class:"content-btn"%>
+      <% end %>
+    <% end %>
 </div>
-
-

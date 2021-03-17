@@ -29,6 +29,7 @@ header {
   border-bottom: 1px solid orange;
   position: fixed;
   top: 0;
+  z-index: 10;
 }
 
 .top-wrapper {
@@ -73,9 +74,7 @@ header {
   background-color: white;
 }
 
-.index {
-  background-color:rgb(255, 255, 255);
-}
+
 
 .section-title {
   text-align: center;
