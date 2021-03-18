@@ -211,3 +211,41 @@ ul {
 .fa-pencil-square-o {
   color: rgb(27, 201, 27);
 }
+
+.idea-edit {
+  margin-top: 60px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.edit-content {
+  height: calc(100vh - 140px);
+  display: flex;
+  justify-content: center;
+  padding: 30px 50px;
+}
+
+.idea-edit-form {
+  width: 800px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.idea-edit-area {
+  height: 400px;
+  font-size: 30px;
+  padding: 20px 20px;
+  background-color: rgb(240, 249, 252);
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+}
+
+.edit-form-btn {
+  width: 130px;
+  height: 80px;
+  margin: 0 auto;
+  box-shadow: 0px 5px lightblue;
+}
+

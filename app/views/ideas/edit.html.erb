@@ -1,8 +1,14 @@
-<h2>投稿編集ページ</h2>
-<% if user_signed_in? %>
-  <%= form_with(model: @idea, local: true) do |form| %>
-    <%# <%= form.text_field :image, placeholder: "Image Url" %> 
-    <%= form.text_area :content, placeholder: "content", rows: "1" %>
-    <%= form.submit "編集する" %>
-  <% end %>
-<% end %>
+<div class="idea-edit">
+  <div class="container">
+    <p class="section-title">投稿編集</p>
+    <div class="edit-content">
+      <div class="edit-form">
+        <%= form_with(model: @idea, local: true, class:"idea-edit-form") do |form| %>
+          <%# <%= form.text_field :image, placeholder: "Image Url" %> 
+          <%= form.text_area :content, class:"idea-edit-area"%>
+          <%= form.submit "編集する", class:"content-btn edit-form-btn"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
