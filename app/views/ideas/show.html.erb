@@ -5,7 +5,7 @@
         <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="image show-image">
       </div>
       <div class="top-right">
-        <p class="user-nickname"><%= @idea.user.nickname %></p>
+        <%= link_to @idea.user.nickname, "/users/#{@idea.user_id}", class: "user-nickname" %>
       </div>
     </div>
     <div class="content-main">
