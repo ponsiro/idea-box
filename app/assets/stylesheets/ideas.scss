@@ -1,9 +1,3 @@
-.comment-form {
-  position: absolute;
-  bottom: 0ox;
-  right: 0px;
-}
-
 .idea-form {
   position: fixed;
   right: 50px;
@@ -96,4 +90,124 @@ ul {
   height: 50px;
   border-radius: 50%;
   border: 1px solid rgb(238, 199, 199);
+}
+
+.content-show {
+  margin: 100px auto;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  width: 600px;
+  padding: 10px 60px;
+  border: 1px solid lightblue;
+  
+}
+
+.content-top {
+  margin: 0 auto;
+  display: flex;
+}
+
+.top-left {
+  height: 100%;
+}
+
+.user-nickname {
+  font-size: 25px;
+  font-weight: 50;
+  color: rgb(41, 40, 40);
+  margin-left: 20px;
+}
+
+.content-main {
+  font-size: 28px;
+}
+
+
+.content-bottom {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+.created-at-show {
+  margin-right: 30px;
+  color: rgb(136, 136, 136);
+}
+
+.comment-form {
+  margin-top: 15px;
+}
+
+.comment-form-area {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: rgb(240, 249, 252);
+  border: 1px solid lightblue;
+  border-radius: 10px;
+}
+
+.comment-btn {
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+  background-color: rgb(31, 184, 235);
+  color: white;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment {
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  width: 600px;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  display: flex;
+}
+
+
+.comment-right {
+  width: 100%;
+  margin: 5px 50px 5px 20px;
+}
+
+.comment-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comment-nickname {
+  font-weight: bold;
+}
+
+.comment-created-at {
+  font-size: 15px;
+  color:  rgb(136, 136, 136);
+}
+
+.trash-btn {
+  font-size: 22px;
+  float: right;
+}
+
+.fa-trash-o {
+  text-align: right;
+  color: rgb(255, 46, 46);
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.edit-btn {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.fa-pencil-square-o {
+  color: rgb(27, 201, 27);
 }
