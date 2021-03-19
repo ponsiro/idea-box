@@ -12,6 +12,7 @@
         <li class="idea created_at"><%= l idea.created_at, format: :short %></li>
       </ul>
       <p class="idea content"><%= link_to idea.content, idea_path(idea.id), class: "con" %></p>
+      <%= image_tag idea.image.variant(resize: '500x500'), class: 'idea-image', if idea.image.attached? %>
     </div>
   </div>
 </div>
