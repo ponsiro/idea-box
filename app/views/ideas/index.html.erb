@@ -15,24 +15,14 @@
 <div class="index-wrapper">
   <div class="container">
   <p class="section-title">Contents<p>
+  <div class="header-middle">
+    <%= form_with(url: search_ideas_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+  </div>
     <% @ideas.each do |idea| %>
-      <div class="idea-contents">
-        <div class="idea-index">
-          <div class="content-left">
-            <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="image">
-            <tr id=”idea_<%= idea.id %>”>
-            <%= render partial: "likes/like", locals: {idea: idea}%>
-            </tr>
-          </div>
-          <div class="content-right">
-            <ul>
-              <li class="idea name"><%= link_to idea.user.nickname, user_path(idea.user_id), class: "nickname" %></li>
-              <li class="idea created_at"><%= l idea.created_at, format: :short %></li>
-            </ul>
-            <p class="idea content"><%= link_to idea.content, idea_path(idea.id), class: "con" %></p>
-          </div>
-        </div>
-      </div>
+      <%= render "idea", {idea: idea} %>
     <% end %>
   </div>
 

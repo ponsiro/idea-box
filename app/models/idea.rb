@@ -7,4 +7,12 @@ class Idea < ApplicationRecord
   has_many :idea_tags
   has_many :tags, through: :idea_tags
   
+
+  def self.search(search)
+    if search != ""
+      Idea.where('content LIKE(?)', "%#{search}%")
+    else
+      Idea.all
+    end
+  end
 end

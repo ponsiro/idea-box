@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
 before_action :authenticate_user!, only: [:create, :destroy, :edit, :update]
 before_action :set_idea, only: [:show, :destroy, :edit, :update]
-before_action :check_user, except: [:index, :show, :create]
+before_action :check_user, except: [:index, :show, :create, :search]
 
   def index
     @ideas = Idea.all.order(created_at: "desc")
@@ -20,6 +20,10 @@ before_action :check_user, except: [:index, :show, :create]
   def show
     @comment = Comment.new
     @comments = @idea.comments.includes(:user).order(created_at: :desc)
+  end
+
+  def search
+    @ideas = Idea.search(params[:keyword])
   end
 
   def destroy

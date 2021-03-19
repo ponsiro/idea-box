@@ -29,7 +29,7 @@ header {
   border-bottom: 1px solid orange;
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 1;
 }
 
 .top-wrapper {
@@ -106,4 +106,35 @@ header {
 
 .actions {
   text-align: center;
+}
+
+.header-middle {
+  line-height: 60px;
+  text-align: center;
+}
+
+.search-input {
+  border: 1px solid lightblue;
+  padding: 5px 8px;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 300px;
+}
+
+.search-btn {
+  padding: 3px 8px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: #1fb8eb;;
+  border: 1px solid lightgray;
+  color: white;
+}
+
+.search-page {
+  margin-top: 120px;
+}
+
+.search-form-a {
+  text-align: center;
+  padding-bottom: 20px;
 }
