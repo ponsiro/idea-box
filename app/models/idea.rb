@@ -1,5 +1,5 @@
 class Idea < ApplicationRecord
-  validates :content, presence: true
+  validates :content, presence: true, unless: :was_attached?
   
   belongs_to :user
   has_many :likes, dependent: :destroy
@@ -15,5 +15,9 @@ class Idea < ApplicationRecord
     else
       Idea.all
     end
+  end
+
+  def was_attached?
+    self.image.attached?
   end
 end

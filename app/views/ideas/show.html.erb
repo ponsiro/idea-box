@@ -10,6 +10,7 @@
     </div>
     <div class="content-main">
       <p><%= @idea.content %></p>
+      <%= image_tag @idea.image.variant(resize: '400 x 600'), class: 'idea-image show-image' if @idea.image.attached?%>
     </div>
     <ul class="content-bottom">
       <li class="created-at-show"><%= l @idea.created_at, format: :short %></li>

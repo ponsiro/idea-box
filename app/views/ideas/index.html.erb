@@ -28,9 +28,14 @@
 
     <% if user_signed_in? %>
       <%= form_with(model: @idea, local: true, class:"idea-form") do |form| %>
-        <%# <%= form.text_field :image, placeholder: "Image Url" %> 
         <%= form.text_area :content, placeholder: "アイディアはここに", class:"content-form"%>
-        <%= form.submit "投稿する", class:"content-btn"%>
+        <div class="form-btn">
+          <label class="form-image content-btn">
+          <span class="image-file"><i class="fa fa-camera" aria-hidden="true"></i></span>
+          <%= form.file_field :image, class: 'hidden' %>
+          </label>
+          <%= form.submit "投稿する", class:"content-btn"%>
+        </div>
       <% end %>
     <% end %>
 </div>
