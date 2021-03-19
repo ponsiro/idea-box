@@ -44,7 +44,7 @@ before_action :check_user, except: [:index, :show, :create, :search]
 
   private
   def idea_params
-    params.require(:idea).permit(:content).merge(user_id: current_user.id)
+    params.require(:idea).permit(:content, :image).merge(user_id: current_user.id)
   end
 
   def set_idea

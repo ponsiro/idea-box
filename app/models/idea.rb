@@ -4,6 +4,7 @@ class Idea < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_one_attached :image
   has_many :idea_tags
   has_many :tags, through: :idea_tags
   
