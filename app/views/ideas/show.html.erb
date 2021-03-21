@@ -1,23 +1,67 @@
-<h2 class="sinki-title">詳細画面</h2>
- <div class="content">
-  <%= @idea.content %>
-
-  <% if user_signed_in? && current_user.id == @idea.user_id %>
-    <%= link_to '削除', idea_path(@idea.id), method: 'delete' %>
-    <%= link_to '編集', edit_idea_path %>
-  <% end %>
-
-  <% if user_signed_in? && @idea.user_id != current_user.id %>
-    <%= form_with(model: [@idea, @comment], local: true) do |form| %>
-      <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-      <%= form.submit "送信" %>
+<div class= container>  
+  <div class="content-show">
+    <div class="content-top">
+      <div class="top-left">
+        <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="image show-image">
+      </div>
+      <div class="top-right">
+        <%= link_to @idea.user.nickname, "/users/#{@idea.user_id}", class: "user-nickname" %>
+      </div>
+    </div>
+    <div class="content-main">
+      <p><%= @idea.content %></p>
+      <%= image_tag @idea.image.variant(resize: '400 x 600'), class: 'idea-image show-image' if @idea.image.attached?%>
+    </div>
+    <ul class="content-bottom">
+      <li class="created-at-show"><%= l @idea.created_at, format: :short %></li>
+      <li class="like-btn-show">
+        <div class="check-like" id=”likes_buttons_<%= @idea.id %>”>
+          <%= render partial: "likes/like", locals: {idea: @idea}%>
+        </div>
+      </li>
+      <% if user_signed_in? && current_user.id == @idea.user_id %>
+          <%= link_to edit_idea_path(@idea), class: "edit-btn" do %>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <% end %>
+        <li>
+        </li>
+        <li>
+          <%= link_to idea_path(@idea), class: "trash-btn", method: "delete" do %>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    
+      <% if user_signed_in?  %>
+        <%= form_with(model: [@idea, @comment], local: true) do |form| %>
+          <%= form.text_field :text, placeholder: "ステキなコメントをする", class: "comment-form-area" %>
+          <%= form.submit "送信", class: "comment-btn" %>
+        <% end %>
+      <% end %>  
+    </div>
+  </div>
+  <div class="comments">  
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <div class="comment-left">
+          <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="image comment-image">
+        </div>
+        <div class="comment-right">
+          <ul class="comment-top">
+            <li class="comment-nickname"><%= comment.user.nickname%></li>
+            <li class="comment-created-at"><%= l comment.created_at, format: :short %></li>
+          </ul>
+          <p class="comment-text"><%= comment.text %></p>
+          <% if user_signed_in? && current_user.id == comment.user.id %>
+            <%= link_to idea_comment_path(comment), class: "trash-btn", method: "delete" do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <% end %>
+          <% end %>  
+        </div>
+      </div>  
     <% end %>
-  <% else %>
-    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-  <% end %>
+  </div>
+</div>
 
-  <% @comments.each do |comment| %>
-    <p><%= comment.text %></p>
-  <% end %>
- </div>
   

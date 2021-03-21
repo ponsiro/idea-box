@@ -1,0 +1,51 @@
+.user-show {
+  margin-top: 60px;
+}
+
+.user-top {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  
+}
+.user-top-wrapper {
+  width: 600px;
+  border: 1px solid lightblue;
+  border-radius: 10px;
+}
+
+.user-top-image {
+  height: 250px;
+  background-color: lightblue;
+}
+
+.user-middle-icon {
+  height: 126px;
+  width: 126px;
+  border-radius: 50%;
+  position: absolute;
+  top: 124px;
+  left: 329px;
+}
+
+.user-bottom {
+  margin: 10px 20px;
+  padding: 65px 20px 10px 20px;
+}
+.user-show-name {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(41, 40, 40);
+}
+
+.user-intro {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.intro-sentence {
+  
+}
