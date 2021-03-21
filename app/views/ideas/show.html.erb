@@ -15,9 +15,9 @@
     <ul class="content-bottom">
       <li class="created-at-show"><%= l @idea.created_at, format: :short %></li>
       <li class="like-btn-show">
-        <tr id=”idea_<%= @idea.id %>”>
+        <div class="check-like" id=”likes_buttons_<%= @idea.id %>”>
           <%= render partial: "likes/like", locals: {idea: @idea}%>
-        </tr>
+        </div>
       </li>
       <% if user_signed_in? && current_user.id == @idea.user_id %>
           <%= link_to edit_idea_path(@idea), class: "edit-btn" do %>

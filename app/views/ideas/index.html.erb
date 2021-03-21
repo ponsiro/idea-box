@@ -21,18 +21,19 @@
       <%= form.submit "検索", class: "search-btn" %>
     <% end %>
   </div>
+  
     <% @ideas.each do |idea| %>
-      <%= render "idea", {idea: idea} %>
+        <%= render "idea", {idea: idea} %>
     <% end %>
-  </div>
 
     <% if user_signed_in? %>
       <%= form_with(model: @idea, local: true, class:"idea-form") do |form| %>
         <%= form.text_area :content, placeholder: "アイディアはここに", class:"content-form"%>
+        <div id="image-list"></div>
         <div class="form-btn">
           <label class="form-image content-btn">
           <span class="image-file"><i class="fa fa-camera" aria-hidden="true"></i></span>
-          <%= form.file_field :image, class: 'hidden' %>
+          <%= form.file_field :image, class: 'hidden' , id: 'message_image'%>
           </label>
           <%= form.submit "投稿する", class:"content-btn"%>
         </div>

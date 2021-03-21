@@ -2,9 +2,9 @@
   <div class="idea-index">
     <div class="content-left">
       <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="image">
-      <tr id=”idea_<%= idea.id %>”>
-      <%= render partial: "likes/like", locals: {idea: idea}%>
-      </tr>
+      <div class="check-like", id="likes_buttons_<%= idea.id %>">
+        <%= render partial: "likes/like", locals: {idea: idea}%>
+      </div>
     </div>
     <div class="content-right">
       <ul>

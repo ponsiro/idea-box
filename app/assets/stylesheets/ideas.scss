@@ -204,6 +204,7 @@ ul {
 }
 
 .idea-edit-area {
+  resize: none;
   height: 400px;
   font-size: 30px;
   padding: 20px 20px;
@@ -217,7 +218,7 @@ ul {
   width: 130px;
   height: 80px;
   margin: 0 auto;
-  box-shadow: 0px 5px lightblue;
+  box-shadow: 0px 2px lightblue;
 }
 
 .idea-form {
@@ -229,6 +230,7 @@ ul {
 }
 
 .content-form {
+  resize: none;
   background-color: rgb(240, 249, 252);
   border: 1px solid lightblue;
   border-radius: 10px;
@@ -279,4 +281,15 @@ ul {
 
 .show-image {
   margin: 15px 0;
+}
+
+.preview-image {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.edit-image {
+  width: 50px;
+  margin: 0 auto;
 }

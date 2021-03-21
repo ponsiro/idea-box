@@ -13,6 +13,7 @@ before_action :check_user, except: [:index, :show, :create, :search]
     if @idea.save
       redirect_to root_path
     else
+      @ideas = Idea.all.order(created_at: "desc")
       render :index
     end
   end

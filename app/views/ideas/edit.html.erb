@@ -1,14 +1,19 @@
 <div class="idea-edit">
   <div class="container">
-    <p class="section-title">投稿編集</p>
+    <p class="section-title"></p>
     <div class="edit-content">
       <div class="edit-form">
         <%= form_with(model: @idea, local: true, class:"idea-edit-form") do |form| %>
-          <%# <%= form.text_field :image, placeholder: "Image Url" %> 
           <%= form.text_area :content, class:"idea-edit-area"%>
-          <%= form.submit "編集する", class:"content-btn edit-form-btn"%>
+          <label class="form-image content-btn edit-image">
+            <span class="image-file"><i class="fa fa-camera" aria-hidden="true"></i></span>
+            <%= form.file_field :image, class: 'hidden' , id: 'message_image'%>
+          </label>
+          <%= form.submit "更新する", class:"content-btn edit-form-btn"%>
         <% end %>
+        <div id="image-list"></div>
       </div>
     </div>
   </div>
 </div>
+
