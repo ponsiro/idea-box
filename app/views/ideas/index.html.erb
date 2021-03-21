@@ -13,31 +13,30 @@
   </div>
 </div>
 <div class="index-wrapper">
-  <div class="container index">
+  <div class="container">
   <p class="section-title">Contents<p>
-    <% if user_signed_in? %>
-      <%= form_with(model: @idea, local: true) do |form| %>
-        <%# <%= form.text_field :image, placeholder: "Image Url" %> 
-        <%= form.text_area :content, placeholder: "アイディアはここに", rows: "1"%>
-        <%= form.submit "投稿する" %>
-      <% end %>
-    <% end %>
-
-    <% @ideas.each do |idea| %>
-    <div class="image-contents">
-      <div class="idea-index">
-        <p class="idea name"><%= idea.user.first_name %></p>
-        <p class="idea content"><%= link_to idea.content, idea_path(idea.id) %></p>
-        <p class="idea created_at"><%= l idea.created_at %></p>
-            <% if user_signed_in? %>
-            <tr id=”idea_<%= idea.id %>”>
-              <%= render partial: "likes/like", locals: {idea: idea}%>
-            </tr>
-            <% end %>
-      </div>
-    
+  <div class="header-middle">
+    <%= form_with(url: search_ideas_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
     <% end %>
   </div>
+  
+    <% @ideas.each do |idea| %>
+        <%= render "idea", {idea: idea} %>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= form_with(model: @idea, local: true, class:"idea-form") do |form| %>
+        <%= form.text_area :content, placeholder: "アイディアはここに", class:"content-form"%>
+        <div id="image-list"></div>
+        <div class="form-btn">
+          <label class="form-image content-btn">
+          <span class="image-file"><i class="fa fa-camera" aria-hidden="true"></i></span>
+          <%= form.file_field :image, class: 'hidden' , id: 'message_image'%>
+          </label>
+          <%= form.submit "投稿する", class:"content-btn"%>
+        </div>
+      <% end %>
+    <% end %>
 </div>
-
-

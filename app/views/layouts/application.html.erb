@@ -18,6 +18,7 @@
       </div>
       <div class="header-right">
         <% if user_signed_in?%>
+          <%= link_to current_user.nickname, "/users/#{current_user.id}", class:"btn" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: "DELETE", class:"btn log-out"%>
         <% else %>
           <%= link_to "新規登録", new_user_registration_path, class:"btn sign-up" %>

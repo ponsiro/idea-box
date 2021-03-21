@@ -1,3 +1,295 @@
-// Place all the styles related to the ideas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.idea-contents {
+  width: 100%;
+
+}
+
+.idea-index {
+  margin: 0 auto;
+  border: 1px solid lightblue;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  width: 600px;
+  padding: 10px 20px 5px 20px;
+  transition: all 0.5s;
+  display: flex;
+}
+
+.content-left {
+  width: 30%;
+}
+
+.content-right {
+  width: 70%;
+}
+
+ul {
+  display: flex;
+}
+
+.name {
+  font-weight: bold;
+  .nickname {
+    text-decoration: none;
+    color: rgb(41, 40, 40);
+  }
+}
+
+.created_at {
+  margin: 5px 0 0 10px;
+  font-size: 12px;
+  color: rgb(136, 136, 136);
+}
+
+.idea-index:hover {
+  transform: scale(1.1, 1.1);
+  border: 1px solid rgb(172, 172, 172);
+}
+
+.content {
+  padding-top: 5px;
+  word-wrap: break-word;
+  .con {
+    text-decoration: none;
+    color:rgb(41, 40, 40);
+    display: block;
+  }
+}
+
+.image {
+  margin-left: 100px;
+  width:  50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgb(238, 199, 199);
+}
+
+.content-show {
+  margin: 100px auto;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  width: 600px;
+  padding: 10px 60px;
+  border: 1px solid lightblue;
+  
+}
+
+.content-top {
+  margin: 0 auto;
+  display: flex;
+}
+
+.top-left {
+  height: 100%;
+}
+
+.user-nickname {
+  font-size: 25px;
+  font-weight: 50;
+  color: rgb(41, 40, 40);
+  margin-left: 20px;
+}
+
+.content-main {
+  font-size: 28px;
+}
+
+
+.content-bottom {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+.created-at-show {
+  margin-right: 30px;
+  color: rgb(136, 136, 136);
+}
+
+.comment-form {
+  margin-top: 15px;
+}
+
+.comment-form-area {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: rgb(240, 249, 252);
+  border: 1px solid lightblue;
+  border-radius: 10px;
+}
+
+.comment-btn {
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+  background-color: rgb(31, 184, 235);
+  color: white;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment {
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  width: 600px;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  display: flex;
+}
+
+
+.comment-right {
+  width: 100%;
+  margin: 5px 50px 5px 20px;
+}
+
+.comment-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comment-nickname {
+  font-weight: bold;
+}
+
+.comment-created-at {
+  font-size: 15px;
+  color:  rgb(136, 136, 136);
+}
+
+.trash-btn {
+  font-size: 22px;
+  float: right;
+}
+
+.fa-trash-o {
+  text-align: right;
+  color: rgb(255, 46, 46);
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.edit-btn {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.fa-pencil-square-o {
+  color: rgb(27, 201, 27);
+}
+
+.idea-edit {
+  margin-top: 60px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.edit-content {
+  height: calc(100vh - 140px);
+  display: flex;
+  justify-content: center;
+  padding: 30px 50px;
+}
+
+.idea-edit-form {
+  width: 800px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.idea-edit-area {
+  resize: none;
+  height: 400px;
+  font-size: 30px;
+  padding: 20px 20px;
+  background-color: rgb(240, 249, 252);
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+}
+
+.edit-form-btn {
+  width: 130px;
+  height: 80px;
+  margin: 0 auto;
+  box-shadow: 0px 2px lightblue;
+}
+
+.idea-form {
+  position: fixed;
+  right: 50px;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-form {
+  resize: none;
+  background-color: rgb(240, 249, 252);
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  width: 300px;
+  padding: 12px;
+  margin-bottom: 10px;
+  height: 50px;
+  transition: 0.6s;
+}
+
+.content-form:hover {
+  height: 150px;
+}
+
+.form-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.content-btn {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+  background-color: rgb(31, 184, 235);
+  color: white;
+  padding: 0 10px;
+}
+
+.form-image {
+  margin-right: 10px;
+  padding: 12px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.idea-image-prace {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.idea-image {
+  border-radius: 10px;
+}
+
+.show-image {
+  margin: 15px 0;
+}
+
+.preview-image {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.edit-image {
+  width: 50px;
+  margin: 0 auto;
+}

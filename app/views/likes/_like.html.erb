@@ -1,13 +1,17 @@
-
-    <% if current_user.liked_by?(idea.id) %>
-      <td><%= link_to destroy_like_path(idea), class: "like-link", method: :DELETE do%></td>
-      <i class="fa fa-heart like-btn-unlike"></i> <%= idea.likes.count %>
-      <i class="fa fa-thumbs-up o-btn"></i> 
-      <% end%>
-    <% else %>
-      <td><%= link_to create_like_path(idea), class: "like-link", method: :POST do%></td>
-      <i class="fa fa-heart like-btn "></i> </span><%= idea.likes.count %>
-      <% end %>
+<% if user_signed_in?%>
+  <% if current_user.liked_by?(idea.id) %>
+    <%= link_to idea_likes_path(idea.id), class: "like-link", method: :DELETE, remote: true do %>
+    <i class="fa fa-heart like-btn-unlike"></i>  <%= idea.likes.count %>
+    <% end%>
+  <% else %>
+    <%= link_to idea_likes_path(idea.id), class: "like-link", method: :POST, remote: true do %>
+    <i class="fa fa-heart like-btn "></i>  <%= idea.likes.count %>
     <% end %>
- 
-
+  <% end %>
+<% else%>
+  <% if idea.likes.count == 0%>
+    <i class="fa fa-heart like-btn "></i>  <%= idea.likes.count %>
+  <% else %>
+    <i class="fa fa-heart like-btn-unlike"></i>  <%= idea.likes.count %>
+  <% end %>
+<% end %>

@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="user-show">
+    <div class="user-top"> 
+      <div class="user-top-wrapper">
+        <div class="user-top-image">
+        </div>
+        <div class="user-middle-icon">
+        <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="user-middle-icon">
+        </div>
+        <div class="user-bottom">
+          <div class="user-show-about">
+            <div class="user-show-name">
+              <p><%= @user.nickname %></p>
+            </div>
+            <div class="user-intro">
+              <span class="intro-sentence">基本的に寝ています。本当に基本的には寝ています。実際に寝ています。
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% @ideas.each do |idea| %>
+      <%= render "ideas/idea", {idea: idea} %>
+    <% end %>
+  </div>
+</div>
