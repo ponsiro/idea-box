@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
      redirect_to "/ideas/#{comment.idea.id}"
    else
     render "ideas/#{@comment.idea.id}"
-    
    end
   end
 

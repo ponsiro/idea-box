@@ -15,14 +15,16 @@
     <ul class="content-bottom">
       <li class="created-at-show"><%= l @idea.created_at, format: :short %></li>
       <li class="like-btn-show">
-        <div class="check-like" id=”likes_buttons_<%= @idea.id %>”>
+        <div class="check-like", id="likes_buttons_<%= @idea.id %>">
           <%= render partial: "likes/like", locals: {idea: @idea}%>
         </div>
       </li>
       <% if user_signed_in? && current_user.id == @idea.user_id %>
-          <%= link_to edit_idea_path(@idea), class: "edit-btn" do %>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          <% end %>
+          <div data-turbolinks="false">
+            <%= link_to edit_idea_path(@idea), class: "edit-btn" do %>
+              <i class="fa fa-pencil-square-o"></i>
+            <% end %>
+          </div>
         <li>
         </li>
         <li>

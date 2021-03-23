@@ -1,18 +1,32 @@
 <div class="idea-edit">
   <div class="container">
-    <p class="section-title"></p>
-    <div class="edit-content">
-      <div class="edit-form">
-        <%= form_with(model: @idea, local: true, class:"idea-edit-form") do |form| %>
-          <%= form.text_area :content, class:"idea-edit-area"%>
-          <label class="form-image content-btn edit-image">
+    <div class="edit-form">
+      <%= form_with(model: @idea, local: true, class:"idea-edit-form") do |form| %>
+        <%= form.text_area :content, class:"idea-edit-area"%>
+        <div class="images">
+          <%= image_tag @idea.image, id: 'image', class: " edit-image" if @idea.image.present? %>
+          <% if @idea.image.present? %> 
+            <div class="right-arrow", id="right-arrow">
+              <i class="fa fa-arrow-right" aria-hidden="true" ></i>
+            </div>
+          <%end%> 
+          <div id="image-list"></div>
+        </div>
+        <div class="edit-form-btns">
+          <div>
+            <label class="form-image content-btn ">
             <span class="image-file"><i class="fa fa-camera" aria-hidden="true"></i></span>
             <%= form.file_field :image, class: 'hidden' , id: 'message_image'%>
-          </label>
-          <%= form.submit "更新する", class:"content-btn edit-form-btn"%>
+            </label>
+          </div>
+          <div>
+            <%= form.submit "更新する", class:"content-btn edit-form-btn"%>
+          </div>
+        </div>
+        <% if @idea.image.present? %>
+        <P class="description">※画像の変更しない場合は画像の選択をせず「更新する」ボタンをクリックしてください</p>
         <% end %>
-        <div id="image-list"></div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
