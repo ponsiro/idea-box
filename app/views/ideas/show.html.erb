@@ -37,6 +37,7 @@
     
       <% if user_signed_in?  %>
         <%= form_with(model: [@idea, @comment], local: true) do |form| %>
+          <%= render 'layouts/error_messages', model: @comment %>
           <%= form.text_field :text, placeholder: "ステキなコメントをする", class: "comment-form-area" %>
           <%= form.submit "送信", class: "comment-btn" %>
         <% end %>

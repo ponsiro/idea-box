@@ -107,8 +107,8 @@ ul {
   justify-content: space-around;
 }
 .created-at-show {
-  margin-right: 30px;
   color: rgb(136, 136, 136);
+  margin-bottom: 10px;
 }
 
 .comment-form {
@@ -332,4 +332,13 @@ ul {
   font-size: 12px;
   margin-top: 5px;
   color: rgb(73, 64, 64);
+}
+
+.error-message {
+  color: red;
+}
+
+.index-error {
+  width: 300px;
+  margin-bottom: 10px;
 }

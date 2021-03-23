@@ -2,6 +2,7 @@
   <div class="container">
     <div class="edit-form">
       <%= form_with(model: @idea, local: true, class:"idea-edit-form") do |form| %>
+      <%= render 'layouts/error_messages', model: form.object %>
         <%= form.text_area :content, class:"idea-edit-area"%>
         <div class="images">
           <%= image_tag @idea.image, id: 'image', class: " edit-image" if @idea.image.present? %>

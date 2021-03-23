@@ -28,6 +28,9 @@
 
     <% if user_signed_in? %>
       <%= form_with(model: @idea, local: true, class:"idea-form") do |form| %>
+        <div class="error-message index-error"> 
+          <%= render 'layouts/error_messages', model: form.object %>
+        </div>
         <%= form.text_area :content, placeholder: "アイディアはここに", class:"content-form"%>
         <div id="image-list"></div>
         <div class="form-btn">
