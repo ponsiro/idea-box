@@ -2,7 +2,15 @@
   <div class="content-show">
     <div class="content-top">
       <div class="top-left">
-        <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="image show-image">
+        <% if @idea.user.icon.present? %>
+          <div class=icon-area>
+            <%= image_tag @idea.user.icon, class:"icon"%>
+          </div>
+        <% else %>
+          <div class="icon-area">
+            <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="icon">
+          </div>
+        <% end %>
       </div>
       <div class="top-right">
         <%= link_to @idea.user.nickname, "/users/#{@idea.user_id}", class: "user-nickname" %>

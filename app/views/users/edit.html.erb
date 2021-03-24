@@ -1,0 +1,16 @@
+<div class="edit-account">
+  <div class="container">
+  <p class="section-title">Account<p>
+  <%= @user.nickname %>
+  <%= form_with(model: @user, local: true) do |form| %>
+    <%= form.file_field :icon %>
+    <p>ニックネーム</p>
+    <%= form.text_field :nickname %>
+    <p>Eメール</p>
+    <%= form.text_field :email %>
+    <p>プロフィール</p>
+    <%= form.text_area :profile, class:"profile-edit"%>
+    <%= form.submit "更新する"%>
+  <% end%>
+  </div>
+</div>

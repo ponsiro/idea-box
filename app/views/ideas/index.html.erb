@@ -31,7 +31,7 @@
         <div class="error-message index-error"> 
           <%= render 'layouts/error_messages', model: form.object %>
         </div>
-        <%= form.text_area :content, placeholder: "アイディアはここに", class:"content-form"%>
+        <%= form.text_area :content, placeholder: "アイディアはここに", class:"content-form", autocomplete: 'off'%>
         <div id="image-list"></div>
         <div class="form-btn">
           <label class="form-image content-btn">
