@@ -5,7 +5,15 @@
         <div class="user-top-image">
         </div>
         <div class="user-middle-icon">
-        <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="user-middle-icon">
+          <% if @user.icon.present? %>
+            <div class="user-show-icon-area">
+              <%= image_tag @user.icon, class:"icon"%>
+            </div>
+          <% else %>
+            <div class="user-show-icon-area">
+              <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="icon">
+            </div>
+          <% end %>
         </div>
         <div class="user-bottom">
           <div class="user-show-about">
@@ -13,9 +21,16 @@
               <p><%= @user.nickname %></p>
             </div>
             <div class="user-intro">
-              <span class="intro-sentence">基本的に寝ています。本当に基本的には寝ています。実際に寝ています。
+              <span class="intro-sentence"><%= @user.profile %>
               </span>
             </div>
+            <%if current_user.id == @user.id%>
+              <div class="user-edit-btn">
+                <%= link_to edit_user_path(@user) do %>
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

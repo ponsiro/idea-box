@@ -13,8 +13,10 @@
   <body>
     <header>
     <div class="header-contents">
-      <div class="header-logo">
-        <%= link_to image_tag("logo_twe.png", class:"logo-img"), root_path %>
+      <div class="header-logo" >
+        <div data-turbolinks="false">
+          <%= link_to image_tag("logo_twe.png", class:"logo-img"), root_path %>
+        </div>
       </div>
       <div class="header-right">
         <% if user_signed_in?%>
@@ -30,5 +32,8 @@
     <%= yield %>
     <footer>
     </footer>
+    <% if content_for?(:body_attributes) %>
+      <%= yield(:body_attributes) %>
+    <% end %>
   </body>
 </html>

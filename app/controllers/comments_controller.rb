@@ -1,12 +1,8 @@
 class CommentsController < ApplicationController
 
   def create
-   if comment = Comment.create(comment_params)
-     redirect_to "/ideas/#{comment.idea.id}"
-   else
-    render "ideas/#{@comment.idea.id}"
-    
-   end
+   comment = Comment.create(comment_params)
+   redirect_to "/ideas/#{comment.idea.id}"
   end
 
   def destroy

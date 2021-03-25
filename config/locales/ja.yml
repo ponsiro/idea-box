@@ -3,3 +3,12 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d %H:%M"
+
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     idea:
+       content: テキストまたは画像
+       image: 画像
