@@ -1,16 +1,49 @@
 <div class="edit-account">
   <div class="container">
-  <p class="section-title">Account<p>
-  <%= @user.nickname %>
   <%= form_with(model: @user, local: true) do |form| %>
-    <%= form.file_field :icon %>
-    <p>ニックネーム</p>
-    <%= form.text_field :nickname %>
-    <p>Eメール</p>
-    <%= form.text_field :email %>
-    <p>プロフィール</p>
-    <%= form.text_area :profile, class:"profile-edit"%>
-    <%= form.submit "更新する"%>
+    <div class="error-message index-error"> 
+      <%= render 'layouts/error_messages', model: form.object %>
+    </div>
+    <div class="user-edit-wrapper">
+      <div class="user-edit-element">
+        <div class="user-edit-icon">
+          <div class="user-icon-area">
+            <label class="edit-form-icon">
+              <span>
+                <% if @user.icon.present? %>
+                  <div class="user-icon">
+                    <%= image_tag @user.icon, class:"icon"%>
+                  </div>
+                <% else %>
+                  <div class="user-icon">
+                    <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="icon">
+                  </div>
+                <% end %>
+              </span>
+              <div class="icon-new">
+                <%= form.file_field :icon, class:"hidden", id: 'upload-icon'%>
+              </div>
+            </label>
+          </div>
+        </div>
+        
+      </div>
+      <div class="user-edit-element">
+        <p>ニックネーム</p>
+        <%= form.text_field :nickname, class:"edit-f"%>
+      </div>
+      <div class="user-edit-element">
+        <p>Eメール</p>
+        <%= form.text_field :email, class:"edit-f" %>
+      </div>
+      <div class="user-edit-element">
+        <p>プロフィール</p>
+        <%= form.text_area :profile, class:"edit-f profile-edit"%>
+      </div>
+      <div>
+        <%= form.submit "更新する", class:"user-edit-f-btn" %>
+      </div>
+    </div>
   <% end%>
   </div>
 </div>

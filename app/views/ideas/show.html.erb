@@ -56,11 +56,19 @@
     <% @comments.each do |comment| %>
       <div class="comment">
         <div class="comment-left">
-          <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="image comment-image">
+          <%if comment.user.icon.present?%>
+            <div class="icon-area">
+              <%= image_tag comment.user.icon, class:"icon"%>
+            </div>
+          <%else%>
+            <div class="icon-area">
+              <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="icon">
+            </div>
+          <%end%>
         </div>
         <div class="comment-right">
           <ul class="comment-top">
-            <li class="comment-nickname"><%= comment.user.nickname%></li>
+            <li class="comment-nickname"><%= link_to comment.user.nickname, user_path(comment.user.id) %></li>
             <li class="comment-created-at"><%= l comment.created_at, format: :short %></li>
           </ul>
           <p class="comment-text"><%= comment.text %></p>

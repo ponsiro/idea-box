@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @image = @user.icon
+    @icon = @user.icon
   end
 
   def update
