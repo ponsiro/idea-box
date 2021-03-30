@@ -12,11 +12,13 @@
               <span>
                 <% if @user.icon.present? %>
                   <div class="user-icon">
-                    <%= image_tag @user.icon, class:"icon"%>
+                    <%= image_tag @user.icon, class:"icon", id:"icon"%>
+                    <div id="edit-icon-preview"></div>
                   </div>
                 <% else %>
                   <div class="user-icon">
-                    <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="icon">
+                    <img src="https://cdn.pixabay.com/photo/2020/09/09/13/03/bike-riding-5557589_1280.png" alt="自転車画像" class="icon" id="icon">
+                    <div id="edit-icon-preview", class="edit-icon-preview"></div>
                   </div>
                 <% end %>
               </span>
