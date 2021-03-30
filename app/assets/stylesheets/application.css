@@ -17,6 +17,7 @@
  * {
   box-sizing: border-box;
   text-decoration: none;
+  list-style: none;
  }
 
 body {
@@ -138,4 +139,24 @@ header {
 .search-form-a {
   text-align: center;
   padding-bottom: 20px;
+}
+
+.user-error {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.errors {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  margin: 5px 0;
+}
+
+.login-flash-message {
+  text-align: center;
+  color: red;
 }

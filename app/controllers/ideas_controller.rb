@@ -4,7 +4,7 @@ before_action :set_idea, only: [:show, :destroy, :edit, :update]
 before_action :check_user, except: [:index, :show, :create, :search]
 
   def index
-    @ideas = Idea.all.order(created_at: "desc")
+    @ideas = Idea.includes(:user).order(created_at: "desc")
     @idea = Idea.new
   end
 
@@ -13,7 +13,7 @@ before_action :check_user, except: [:index, :show, :create, :search]
     if @idea.save
       redirect_to root_path
     else
-      @ideas = Idea.all.order(created_at: "desc")
+      @ideas = Idea.includes(:user).order(created_at: "desc")
       render :index
     end
   end

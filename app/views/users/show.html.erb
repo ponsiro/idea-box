@@ -26,9 +26,11 @@
             </div>
             <%if current_user.id == @user.id%>
               <div class="user-edit-btn">
-                <%= link_to edit_user_path(@user) do %>
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
-                <% end %>
+                <div data-turbolinks="false">
+                  <%= link_to edit_user_path(@user) do %>
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           </div>
