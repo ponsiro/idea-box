@@ -28,12 +28,12 @@
         </div>
       </li>
       <% if user_signed_in? && current_user.id == @idea.user_id %>
+        <li>
           <div data-turbolinks="false">
             <%= link_to edit_idea_path(@idea), class: "edit-btn" do %>
               <i class="fa fa-pencil-square-o"></i>
             <% end %>
           </div>
-        <li>
         </li>
         <li>
           <%= link_to idea_path(@idea), class: "trash-btn", method: "delete" do %>
