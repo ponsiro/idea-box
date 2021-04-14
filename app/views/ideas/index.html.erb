@@ -38,7 +38,7 @@
           <span class="image-file"><i class="fa fa-camera" aria-hidden="true"></i></span>
           <%= form.file_field :image, class: 'hidden' , id: 'message_image'%>
           </label>
-          <%= form.submit "投稿する", class:"content-btn"%>
+          <%= form.submit "投稿する", class:"content-btn", name:"commit_content" %>
         </div>
       <% end %>
     <% end %>

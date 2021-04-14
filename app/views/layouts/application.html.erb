@@ -14,9 +14,7 @@
     <header>
     <div class="header-contents">
       <div class="header-logo" >
-        <div data-turbolinks="false">
-          <%= link_to image_tag("logo_twe.png", class:"logo-img"), root_path %>
-        </div>
+        <%= link_to image_tag("logo_twe.png", class:"logo-img"), root_path %>
       </div>
       <div class="header-right">
         <% if user_signed_in?%>
