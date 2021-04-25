@@ -74,7 +74,13 @@ RSpec.describe 'アイディア編集', type: :system do
   context 'アイディア編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したツイートの編集画面には遷移できない' do
   #     アイディア1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Eメール', with: @idea1.user.email
+      fill_in 'パスワード', with: @idea1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
   #     アイディア2をクリックし、アイディア2の詳細画面に遷移する
+      visit idea_path(@idea2)
   #     アイディア2に「編集」ボタンがないことを確認する
     end
     it 'ログインしていないとツイートの編集画面には遷移できない' do
