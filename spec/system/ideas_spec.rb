@@ -27,7 +27,7 @@ RSpec.describe "Ideas", type: :system do
     end
   end
   context 'ツイート投稿ができないとき'do
-    it 'ログインしていないと新規投稿ページに遷移できない' do
+    it 'ログインしていないと新規投稿フォームがない' do
       # トップページに遷移する
       visit root_path
       # 投稿フォームがない
@@ -44,28 +44,49 @@ RSpec.describe 'アイディア編集', type: :system do
   context 'アイディア編集ができるとき' do
     it 'ログインしたユーザーは自分が投稿したアイディアの編集ができる' do
       # アイディア1を投稿したユーザーでログインする
-      # アイディア1をクリックしてアイディア詳細ページへ遷移する
-      # アイディア編集ボタンがあることを確認する
-      # アイディア編集ページへ遷移する
+      visit new_user_session_path
+      fill_in 'Eメール', with: @idea1.user.email
+      fill_in 'パスワード', with: @idea1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # アイディア1詳細ページへ遷移する
+      visit idea_path(@idea1)
+      # アイディア1編集ボタンをクリックする
+      click_link nil, href: edit_idea_path(@idea1)
+      # アイディア1編集ページにいることを確認する
+      expect(current_path).to eq(edit_idea_path(@idea1))
       # すでに投稿済みの内容がフォームに入っていることを確認する
+      expect(page).to have_content(@idea1.content)
       # 投稿内容を編集する
+      fill_in 'idea[content]', with: "#{@idea1.content}+新しい投稿"
       # 編集してもIdeaモデルのカウントは変わらないことを確認する
+      expect{
+        find('input[name="commit"]').click
+      }.to change {Idea.count}.by (0)
       # アイディア詳細ページへ遷移したことを確認する
+      expect(current_path).to eq(idea_path(@idea1))
       # トップページに遷移する
-      # トップページには先ほど変更した内容のツイートが存在することを確認する（画像）
+      visit root_path
       # トップページには先ほど変更した内容のツイートが存在することを確認する（テキスト）
+      expect(page).to have_content("#{@idea1.content}+新しい投稿")
     end
   end
   context 'アイディア編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したツイートの編集画面には遷移できない' do
-      # アイディア1を投稿したユーザーでログインする
-      # アイディア2をクリックし、アイディア2の詳細画面に遷移する
-      # アイディア2に「編集」ボタンがないことを確認する
+  #     アイディア1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Eメール', with: @idea1.user.email
+      fill_in 'パスワード', with: @idea1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+  #     アイディア2をクリックし、アイディア2の詳細画面に遷移する
+      visit idea_path(@idea2)
+  #     アイディア2に「編集」ボタンがないことを確認する
     end
     it 'ログインしていないとツイートの編集画面には遷移できない' do
-      # トップページにいる
-      # アイディア1に「編集」ボタンがないことを確認する
-      # アイディア2に「編集」ボタンがないことを確認する
+  #     トップページにいる
+  #     アイディア1に「編集」ボタンがないことを確認する
+  #     アイディア2に「編集」ボタンがないことを確認する
     end
   end
 end
